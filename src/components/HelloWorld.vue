@@ -43,7 +43,7 @@
       </div>
     </div>
       <div class="columns is-centered">
-        <div v-for="(d,index) in data.civilwar" :key="index">
+        <div v-for="(d,index) in seat" :key="index">
           <div v-if="!d.seated">
               <button class="button is-medium is-success is-outlined"> {{d.id}}({{d.price}}) </button>
             </div>
@@ -68,6 +68,23 @@ export default {
   methods: {
     select (title) {
       this.movieSelected = title
+    }
+  },
+  computed: {
+    seat () {
+      if (this.movieSelected === 'civilwar') {
+        console.log(this.data.civilwar)
+        return this.data.civilwar
+      } else if (this.movieSelected === 'harry') {
+        console.log(this.data.harry)
+        return this.data.harry
+      } else if (this.movieSelected === 'johnwick') {
+        return this.data.johnwick
+      } else if (this.movieSelected === 'matrix') {
+        return this.data.matrix
+      } else if (this.movieSelected === 'thor') {
+        return this.data.thor
+      }
     }
   }
 }
